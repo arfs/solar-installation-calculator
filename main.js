@@ -1,6 +1,5 @@
 import './style.css';
 import MapService from './src/mapService';
-import { normalize } from 'ol/color';
 import SolarInstallationEstimatorTool from './src/solarInstallationEstimatorTool';
 import SolarInstallationCalculator from './src/solarInstallationCalculator';
 

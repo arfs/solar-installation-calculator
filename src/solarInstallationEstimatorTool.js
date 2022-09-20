@@ -35,11 +35,14 @@ class SolarInstallationEstimatorTool {
     if(geometry instanceof Polygon) {
       let area = this.#calculator.getAreaInMetersSquared(geometry);
       let nominalPower = this.#calculator.getNominalPower(area);
-
-      document.getElementById('area').innerHTML = area;
-      document.getElementById('nominal-power').innerHTML = nominalPower;
+      this.renderResults(area, nominalPower);
     }
-  };
+  }
+
+  renderResults(area, nominalPower) {
+    document.getElementById(this.#uiConfig.areaEl).innerHTML = area;
+    document.getElementById(this.#uiConfig.nominalPowerEl).innerHTML = nominalPower;
+  }
 }
 
 export default SolarInstallationEstimatorTool;

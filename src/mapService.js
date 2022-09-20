@@ -4,7 +4,6 @@ import View from 'ol/View';
 import { OSM, Vector as VectorSource } from 'ol/source';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { fromLonLat } from 'ol/proj';
-import { Point } from 'ol/geom';
 
 
 class MapService {
@@ -15,9 +14,7 @@ class MapService {
   #view;
   #map;
 
-  create(targetEl) {
-    targetEl = targetEl || 'map';
-
+  create(targetEl = 'map') {
     const place = fromLonLat([-79.9458906, 32.8077378]);
 
     this.#raster = new TileLayer({
