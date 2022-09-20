@@ -10,3 +10,12 @@ html, body {
   bottom: 0;
   width: 100%;
 }
+#stats {
+  background: white;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 400px;
+  height: 300px;
+  z-index: 10;
+}

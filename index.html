@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Solar Installation Calculator</title>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using OpenLayers with Vite</title>
+
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
   </head>
   <body>
     <div id="map"></div>
+    <div id="stats">
+      <div class="container">
+        <div class="row">
+          <h3 class="mt-2">Solar Installation Calculator</h3>
+          <p>Draw a shape on the map by clicking to set points.</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Area selected</th>
+                <th>Nominal Power</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span id="area">0</span> m<sup>2</sup></td>
+                <td><span id="nominal-power">0</span> W</td>
+              </tr>
+            </tbody>
+          </table>
+          <button id="clear" class="btn btn-primary">Clear</button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
