@@ -65,6 +65,7 @@ class MapService {
     });
 
     this.#map.setView(this.#view);
+    this.#geolocation.setTracking(false);
   }
 }
 
