@@ -38,7 +38,7 @@ npm start
 
 ---
 
-## How to run unit testss
+## How to run unit tests
 
 If you just want to run the tests 
 
@@ -97,11 +97,12 @@ Additionally, I am assuming the solar panels have an efficiency of 25%.
 
 ###  JavaScript
 
-- Kept it simple and used vanilla javascript (i.e. no framework like jQuery) since the UI interaction outside of the vector drawings is very simple.
+- Kept it simple and used vanilla javascript (i.e. no framework like jQuery) since the UI interaction outside of the vector drawing is very simple.
 - Used EcmaScript (ES2019 to be exact) to match the style of the OpenLayers source code.
+- Started adding some JSDoc but stopped because I thought it was a little too time-consuming for the purpose of this demo (sorry).
 
 ### Regarding comments in code
-- Other than the JSDoc, I preferred to use minimal comments and instead wrote my code to be self-documenting via variable and method names (courtesy [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?crid=KHNRYAIFS3V3&keywords=clean+code&qid=1663741317&sprefix=clean+cod%2Caps%2C256&sr=8-1) by Robert Martin).
+- I preferred to use minimal comments and instead wrote my code to be self-documenting via variable and method names (courtesy [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?crid=KHNRYAIFS3V3&keywords=clean+code&qid=1663741317&sprefix=clean+cod%2Caps%2C256&sr=8-1) by Robert Martin).
 
 ---
 
@@ -110,17 +111,5 @@ Additionally, I am assuming the solar panels have an efficiency of 25%.
 |Class name|Responsiblity|
 |-|-|
 |MapService|Configures and renders the web-based map that the user can browse.|
-|SolarInstallationCalculator|Calculates nominal power based on given area and assumed light intensity and solar panel efficiency.|
-|SolarInstallationEstimatorTool|Handles all the user interactions and renders calculated results.|
-
----
-
-## To-Do
-
-- Add some more unit tests?
-
-
-
-
-
-
+|SolarInstallationCalculator|Calculates nominal power based on given area, assumed light intensity and solar panel efficiency.|
+|SolarInstallationEstimatorTool|Handles all the user interactions and renders calculated results. Has dependencies on the two classes above.|
