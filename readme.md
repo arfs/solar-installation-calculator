@@ -10,6 +10,7 @@ This application was created to allow a user to:
 - Browse a web map and draw a solar installation (polygon) over an arbitrary area.
 - Display the area selected and estimated nomimal power of the solar installation.
 - Start a new drawing by clicking on the "Reset" button or simply by beginning a new drawing.
+- Modify an existing drawing by dragging its edges and vertices.
 - Abort an existing drawing by clicking on the "Reset" button.
 
 ---
@@ -49,7 +50,19 @@ npm start
 
 ## Decisions
 
+### Nominal power calculation
+
+The nominal power of the solar installation is calculated under the following Standard Test Conditions:
+
+- a light intensity of 1.000 W/m²
+- sunlight hitting the positioned solar cells perpendicularly
+- a standard airmass (AM) of 1,5. This is a measure for the relative length of the optical path through the atmosphere.
+- a temperature of 25°C at the solar cells
+
+Additionally, I am assuming the solar panels have an efficiency of 25%.
+
 ###  Mapping library
+
 - Considered Google Maps, MapBox, and OpenLayers for the mapping library.
 - Chose OpenLayers because:
     - It's free and open-source --being able to read the source code is helpful.
@@ -72,6 +85,16 @@ npm start
 
 ### Regarding comments in code
 - Other than the JSDoc, I preferred to use minimal comments and instead wrote my code to be self-documenting via variable and method names (courtesy [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?crid=KHNRYAIFS3V3&keywords=clean+code&qid=1663741317&sprefix=clean+cod%2Caps%2C256&sr=8-1) by Robert Martin).
+
+---
+
+## Software Architecture
+
+|Class name|Responsiblity|
+|-|-|
+|MapService|Configures and renders the web-based map that the user can browse.|
+|SolarInstallationCalculator|Calculates nominal power based on given area and assumed light intensity and solar panel efficiency.|
+|SolarInstallationEstimatorTool|Handles all the user interactions and renders calculated results.|
 
 ---
 
