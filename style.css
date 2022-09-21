@@ -4,20 +4,45 @@ html, body {
   margin: 0;
   height: 100%;
 }
+
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
 }
+
 #stats {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid #aaaaaa;
   border-radius: 2px;
   color: rgb(102, 102, 102);
   position: absolute;
-  left: 10px;
-  bottom: 10px;
-  width: 400px;
+  bottom: 0;
   z-index: 10;
+}
+
+#stats h4 {
+  font-size: 1.2rem;
+}
+
+#stats p, 
+#stats th,
+#stats button, 
+#stats td {
+  font-size: 0.8rem;
+}
+
+#stats p, 
+#stats .table {
+  margin-bottom: 0.6rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #stats {
+    left: 10px;
+    bottom: 10px;
+    width: 400px;
+  }
 }
