@@ -2,7 +2,7 @@ import { getArea } from 'ol/sphere';
 
 class SolarInstallationCalculator {
   #lightIntensity;        // unit is Watts per meter squared
-  #solarPanelEfficiency;  // unit is decimal pecentage
+  #solarPanelEfficiency;  // unit is decimal percentage
 
   constructor(solarPanelEfficiency = 0.25, lightIntensity = 1000) {
     this.#lightIntensity = lightIntensity;
