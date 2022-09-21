@@ -29,28 +29,28 @@ class SolarInstallationEstimatorTool {
   }
 
   addDrawPolygonInteraction() {
-      this.#drawInteraction = new Draw({
-        source: this.#mapService.getVectorSource(),
-        type: 'Polygon'
-      });
+    this.#drawInteraction = new Draw({
+      source: this.#mapService.getVectorSource(),
+      type: 'Polygon'
+    });
 
-      this.#modifyInteraction = new Modify({source: this.#mapService.getVectorSource()});
+    this.#modifyInteraction = new Modify({source: this.#mapService.getVectorSource()});
 
-      this.#map.addInteraction(this.#drawInteraction);
-      this.#map.addInteraction(this.#modifyInteraction);
+    this.#map.addInteraction(this.#drawInteraction);
+    this.#map.addInteraction(this.#modifyInteraction);
 
-      this.#drawInteraction.on('drawstart', this.onPolygonDrawStart.bind(this));
-      this.#drawInteraction.on('drawend', this.onPolygonDrawEnd.bind(this));
-      this.#modifyInteraction.on('modifyend', this.onPolygonModifyEnd.bind(this));
+    this.#drawInteraction.on('drawstart', this.onPolygonDrawStart.bind(this));
+    this.#drawInteraction.on('drawend', this.onPolygonDrawEnd.bind(this));
+    this.#modifyInteraction.on('modifyend', this.onPolygonModifyEnd.bind(this));
   }
 
   onResetClick() {
-    this.#mapService.getVectorSource().clear()
-    this.renderResults(0, 0);
+    this.resetResults();
+    this.#drawInteraction.abortDrawing();
   }
 
   onPolygonDrawStart(e) {
-    this.onResetClick();
+    this.resetResults();
   }
 
   onPolygonDrawEnd(e) {
@@ -69,6 +69,11 @@ class SolarInstallationEstimatorTool {
       let nominalPower = this.#calculator.getNominalPower(area);
       this.renderResults(area, nominalPower);
     }
+  }
+
+  resetResults() {
+    this.#mapService.getVectorSource().clear()
+    this.renderResults(0, 0);
   }
 
   renderResults(area, nominalPower) {

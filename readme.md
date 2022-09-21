@@ -7,7 +7,7 @@ The user needs to get an estimate of the nominal power produced by a solar insta
 
 This application allows a user to browse a web map and draw a solar installation (polygon) over an arbitrary area. Once the drawing is finished, the application will display the area selected and an estimate of the nominal power produced by that by that solar installation.
 
-The user can also start another simply by drawing a new solar installation in another area or clicking the clicking the "Reset" button first.
+The user can start a new one simply by drawing a new solar installation in another area or clicking the "Reset" button first. Clicking the "Reset" button also allows the user to abort the drawing.
 
 ---
 
