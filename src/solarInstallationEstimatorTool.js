@@ -77,8 +77,22 @@ class SolarInstallationEstimatorTool {
   }
 
   renderResults(area, nominalPower) {
+    let nominalPowerText = this.getNominalPowerWithUnits(nominalPower);
     this.#areaTextEl.innerHTML = area;
-    this.#nominalPowerTextEl.innerHTML = nominalPower;
+    this.#nominalPowerTextEl.innerHTML = nominalPowerText;
+  }
+
+  getNominalPowerWithUnits(nominalPower) {
+    let result;
+
+    if(nominalPower > 1000) {
+      result = `${nominalPower / 1000} kW`;
+    }
+    else {
+      result = `${nominalPower} W`;
+    }
+
+    return result;
   }
 }
 

@@ -1,7 +1,13 @@
 import { getArea } from 'ol/sphere';
 
 class SolarInstallationCalculator {
-  #lightIntensity = 1000;
+  #lightIntensity;        // unit is Watts per meter squared
+  #solarPanelEfficiency;  // unit is decimal pecentage
+
+  constructor(lightIntensity = 1000, solarPanelEfficiency = 0.25) {
+    this.#lightIntensity = lightIntensity;
+    this.#solarPanelEfficiency = solarPanelEfficiency;
+  }
 
   /**
    * Format area output.
@@ -20,8 +26,7 @@ class SolarInstallationCalculator {
    * @return {Number} Nominal power in watts
    */
   getNominalPower(area) {
-    const lightIntensity = this.#lightIntensity; // W per meter squared
-    return area * lightIntensity;
+    return area * this.#lightIntensity * this.#solarPanelEfficiency;
   }
 }
 
