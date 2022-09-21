@@ -58,16 +58,17 @@ npm start
 
 - Kept it clean and minimal to match the aesthetics of OpenStreetMap.
 - Chose fullscreen map mode because that's the default way it's displayed and it looks good.
+- If user allows geolocation, it will center the view on their current location. Otherwise, it defaults the view to the location of the Palmetto HQ in Charleston, SC.
 - Probably a little overkill to use Bootstrap just for header, table, and button styles only. I thought I was going to use more of it initially.
 
 
 ###  JavaScript
 
-- kept it simple and used vanilla javascript (i.e. no framework like jQuery) since the UI interaction outside of the vector drawings is very simple.
--  used EcmaScript (ES2019 to be exact) to match the style of the OpenLayers source code.
+- Kept it simple and used vanilla javascript (i.e. no framework like jQuery) since the UI interaction outside of the vector drawings is very simple.
+- Used EcmaScript (ES2019 to be exact) to match the style of the OpenLayers source code.
 
 ### Regarding comments in code
-- other than the JSDoc, I preferred to use minimal comments and instead wrote my code to be self-documenting via variable and method names (courtesy [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?crid=KHNRYAIFS3V3&keywords=clean+code&qid=1663741317&sprefix=clean+cod%2Caps%2C256&sr=8-1) by Robert Martin).
+- Other than the JSDoc, I preferred to use minimal comments and instead wrote my code to be self-documenting via variable and method names (courtesy [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/ref=sr_1_1?crid=KHNRYAIFS3V3&keywords=clean+code&qid=1663741317&sprefix=clean+cod%2Caps%2C256&sr=8-1) by Robert Martin).
 
 ---
 

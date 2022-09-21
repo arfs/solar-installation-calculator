@@ -14,7 +14,7 @@ class MapService {
   #map;
 
   create(targetEl = 'map') {
-    const place = fromLonLat([-79.9458906, 32.8077378]);
+    const palmettoHqCoordinates = fromLonLat([-79.9458906, 32.8077378]); 
 
     this.#tileLayer = new TileLayer({
       source: new OSM(),
@@ -27,7 +27,7 @@ class MapService {
     });
 
     this.#view = new View({
-      center: place,
+      center: palmettoHqCoordinates,
       zoom: 18
     });
 
