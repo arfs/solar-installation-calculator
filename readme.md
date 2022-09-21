@@ -38,6 +38,22 @@ npm start
 
 ---
 
+## How to run unit testss
+
+If you just want to run the tests 
+
+```bash
+npm run test
+```
+
+If you want to write unit tests and have the tests run every time you save the file (ex: for TDD workflow)
+
+```bash
+npm run test:run
+```
+
+---
+
 ## Third-Party Libraries
 
 |name|description|
@@ -100,8 +116,7 @@ Additionally, I am assuming the solar panels have an efficiency of 25%.
 
 ## To-Do
 
-- Add some unit tests.
-- Implement some media queries so the calculator area is responsive.
+- Add some more unit tests?
 
 
 

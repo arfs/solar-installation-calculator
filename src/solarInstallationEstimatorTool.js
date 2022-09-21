@@ -25,7 +25,6 @@ class SolarInstallationEstimatorTool {
 
     this.addDrawPolygonInteraction();
     this.#resetButton.addEventListener('click', this.onResetClick.bind(this));
-
   }
 
   addDrawPolygonInteraction() {

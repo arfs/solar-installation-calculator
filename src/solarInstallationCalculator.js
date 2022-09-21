@@ -4,7 +4,7 @@ class SolarInstallationCalculator {
   #lightIntensity;        // unit is Watts per meter squared
   #solarPanelEfficiency;  // unit is decimal pecentage
 
-  constructor(lightIntensity = 1000, solarPanelEfficiency = 0.25) {
+  constructor(solarPanelEfficiency = 0.25, lightIntensity = 1000) {
     this.#lightIntensity = lightIntensity;
     this.#solarPanelEfficiency = solarPanelEfficiency;
   }
