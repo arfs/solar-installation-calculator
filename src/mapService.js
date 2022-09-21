@@ -5,25 +5,24 @@ import { OSM, Vector as VectorSource } from 'ol/source';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { fromLonLat } from 'ol/proj';
 
-
 class MapService {
   #geolocation;
-  #raster;
+  #tileLayer;
+  #vectorLayer;
   #vectorSource;
-  #vector;
   #view;
   #map;
 
   create(targetEl = 'map') {
     const place = fromLonLat([-79.9458906, 32.8077378]);
 
-    this.#raster = new TileLayer({
+    this.#tileLayer = new TileLayer({
       source: new OSM(),
     });
 
     this.#vectorSource = new VectorSource({ wrapX: false });
 
-    this.#vector = new VectorLayer({
+    this.#vectorLayer = new VectorLayer({
       source: this.#vectorSource,
     });
 
@@ -41,12 +40,12 @@ class MapService {
 
     const map = this.#map = new Map({
       target: targetEl,
-      layers: [this.#raster, this.#vector],
+      layers: [this.#tileLayer, this.#vectorLayer],
       view: this.#view
     });
 
-    //this.#geolocation.setTracking(true);
-    //this.#geolocation.on('change:position', this.onChangePosition.bind(this));
+    this.#geolocation.setTracking(true);
+    this.#geolocation.on('change:position', this.onChangePosition.bind(this));
 
     return this.#map;
   }
@@ -60,7 +59,12 @@ class MapService {
   }
 
   onChangePosition() {
-    console.log(this.#geolocation.getPosition());
+    this.#view = new View({
+      center: this.#geolocation.getPosition(),
+      zoom: 18
+    });
+
+    this.#map.setView(this.#view);
   }
 }
 

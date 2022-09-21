@@ -1,11 +1,15 @@
-import Draw from 'ol/interaction/Draw';
+import { Draw, Modify } from 'ol/interaction';
 import { Polygon } from 'ol/geom';
 
 class SolarInstallationEstimatorTool {
+  #areaTextEl;
+  #nominalPowerTextEl;
+  #resetButton;
   #calculator;
   #map;
-  #draw;
+  #drawInteraction;
   #mapService;
+  #modifyInteraction;
   #uiConfig;
 
   constructor(mapService, calculator, uiConfig) {
@@ -14,34 +18,62 @@ class SolarInstallationEstimatorTool {
     this.#uiConfig = uiConfig;
 
     this.#map = mapService.create();
+
+    this.#areaTextEl = document.getElementById(this.#uiConfig.areaEl);
+    this.#nominalPowerTextEl = document.getElementById(this.#uiConfig.nominalPowerEl);
+    this.#resetButton = document.getElementById(this.#uiConfig.resetButtonEl);
+
     this.addDrawPolygonInteraction();
+    this.#resetButton.addEventListener('click', this.onResetClick.bind(this));
+
   }
 
   addDrawPolygonInteraction() {
-
-      this.#draw = new Draw({
+      this.#drawInteraction = new Draw({
         source: this.#mapService.getVectorSource(),
         type: 'Polygon'
       });
 
-      this.#map.addInteraction(this.#draw);
-      this.#draw.on('drawend', this.onPolygonDrawEnd.bind(this));
+      this.#modifyInteraction = new Modify({source: this.#mapService.getVectorSource()});
+
+      this.#map.addInteraction(this.#drawInteraction);
+      this.#map.addInteraction(this.#modifyInteraction);
+
+      this.#drawInteraction.on('drawstart', this.onPolygonDrawStart.bind(this));
+      this.#drawInteraction.on('drawend', this.onPolygonDrawEnd.bind(this));
+      this.#modifyInteraction.on('modifyend', this.onPolygonModifyEnd.bind(this));
+  }
+
+  onResetClick() {
+    this.#mapService.getVectorSource().clear()
+    this.renderResults(0, 0);
+  }
+
+  onPolygonDrawStart(e) {
+    this.onResetClick();
   }
 
   onPolygonDrawEnd(e) {
-    const sketch = e.feature;
-    const geometry = sketch.getGeometry();
+    this.calculateEstimates(e.feature);
+  }
 
-    if(geometry instanceof Polygon) {
-      let area = this.#calculator.getAreaInMetersSquared(geometry);
+  onPolygonModifyEnd(e) {
+    this.calculateEstimates(e.features.getArray()[0]);
+  }
+
+  calculateEstimates(drawnFeature) {
+    const drawnGeometry = drawnFeature.getGeometry();
+
+    if(drawnGeometry instanceof Polygon) {
+      let area = this.#calculator.getAreaInMetersSquared(drawnGeometry);
       let nominalPower = this.#calculator.getNominalPower(area);
       this.renderResults(area, nominalPower);
     }
   }
 
   renderResults(area, nominalPower) {
-    document.getElementById(this.#uiConfig.areaEl).innerHTML = area;
-    document.getElementById(this.#uiConfig.nominalPowerEl).innerHTML = nominalPower;
+    this.#areaTextEl.innerHTML = area;
+    this.#nominalPowerTextEl.innerHTML = nominalPower;
   }
 }
 

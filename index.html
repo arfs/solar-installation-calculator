@@ -12,24 +12,27 @@
     <div id="map"></div>
     <div id="stats">
       <div class="container">
-        <div class="row">
-          <h3 class="mt-2">Solar Installation Calculator</h3>
-          <p>Draw a shape on the map by clicking to set points.</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Area selected</th>
-                <th>Nominal Power</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span id="area">0</span> m<sup>2</sup></td>
-                <td><span id="nominal-power">0</span> W</td>
-              </tr>
-            </tbody>
-          </table>
-          <button id="clear" class="btn btn-primary">Clear</button>
+        <div class="row pt-2 pb-2">
+          <div class="col">
+            <h3>Solar Installation Calculator</h3>
+            <p>Draw the shape of the solar installation by clicking on the map to set vertices.</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Area selected</th>
+                  <th>Nominal Power</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span id="area">0</span> m<sup>2</sup></td>
+                  <td><span id="nominal-power">0</span> W</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <button id="reset" class="btn btn-primary">&#8634; Reset</button>
+          </div>
         </div>
       </div>
     </div>

@@ -7,7 +7,8 @@ const mapService = new MapService();
 const calculator = new SolarInstallationCalculator();
 const uiConfig = {
   areaEl: 'area',
-  nominalPowerEl: 'nominal-power'
+  nominalPowerEl: 'nominal-power',
+  resetButtonEl: 'reset'
 };
 
 new SolarInstallationEstimatorTool(mapService, calculator, uiConfig);
