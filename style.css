@@ -11,8 +11,9 @@ html, body {
   width: 100%;
 }
 #stats {
-  background: white;
-  border: 1px solid rgb(102, 102, 102);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #aaaaaa;
+  border-radius: 2px;
   color: rgb(102, 102, 102);
   position: absolute;
   left: 10px;

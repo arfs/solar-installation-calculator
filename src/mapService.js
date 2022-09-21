@@ -44,6 +44,7 @@ class MapService {
       view: this.#view
     });
 
+    // default the view to Palmetto HQ, but center to the user's coordinates if geolcation is allowed by user
     this.#geolocation.setTracking(true);
     this.#geolocation.on('change:position', this.onChangePosition.bind(this));
 
@@ -65,7 +66,8 @@ class MapService {
     });
 
     this.#map.setView(this.#view);
-    this.#geolocation.setTracking(false);
+    this.#geolocation.setTracking(false); // to prevent the map view from jumping when it thinks the position has changed:w
+    
   }
 }
 

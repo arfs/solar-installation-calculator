@@ -5,9 +5,12 @@ The user needs to get an estimate of the nominal power produced by a solar insta
 
 ## Solution 
 
-This application allows a user to browse a web map and draw a solar installation (polygon) over an arbitrary area. Once the drawing is finished, the application will display the area selected and an estimate of the nominal power produced by that by that solar installation.
+This application was created to allow a user to:
 
-The user can start a new one simply by drawing a new solar installation in another area or clicking the "Reset" button first. Clicking the "Reset" button also allows the user to abort the drawing.
+- Browse a web map and draw a solar installation (polygon) over an arbitrary area.
+- Display the area selected and estimated nomimal power of the solar installation.
+- Start a new drawing by clicking on the "Reset" button or simply by beginning a new drawing.
+- Abort an existing drawing by clicking on the "Reset" button.
 
 ---
 
@@ -57,7 +60,7 @@ npm start
 ###  User Interface
 
 - Kept it clean and minimal to match the aesthetics of OpenStreetMap.
-- Chose fullscreen map mode because that's the default way it's displayed and it looks good.
+- Chose fullscreen map mode because that's the default styling from the boilerplate code and it feels more immersive.
 - If user allows geolocation, it will center the view on their current location. Otherwise, it defaults the view to the location of the Palmetto HQ in Charleston, SC.
 - Probably a little overkill to use Bootstrap just for header, table, and button styles only. I thought I was going to use more of it initially.
 
