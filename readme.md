@@ -60,6 +60,7 @@ npm run test:run
 |-|-|
 |[OpenLayers](https://openlayers.org/)|An open-source JavaScript library for displaying map data in web browsers. It provides an API for building rich web-based geographic applications.|
 |[Vite](https://vitejs.dev/)|A new breed of frontend build tool that significantly improves the frontend development experience.|
+|[Vitest](https://vitest.dev/)|A Vite-native unit test framework.|
 |[Bootstrap](https://getbootstrap.com/)|Powerful, extensible, and feature-packed frontend toolkit.|
 
 ---
