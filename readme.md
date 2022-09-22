@@ -84,7 +84,7 @@ Additionally, I am assuming the solar panels have an efficiency of 25%.
 - Chose OpenLayers because:
     - It's free and open-source --being able to read the source code is helpful.
     - It supported drawing vector objects out-of-the-box.
-    - The documentation seemed pretty good with lot examples.
+    - The documentation seemed pretty good with lots of examples.
 - Almost chose MapBox at first because I thought it was free but it required a credit card when signing up for an API key
 .
 ###  User Interface
