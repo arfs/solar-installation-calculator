@@ -93,6 +93,8 @@ Additionally, I am assuming the solar panels have an efficiency of 25%.
 - Chose fullscreen map mode because that's the default styling from the boilerplate code and it feels more immersive.
 - If user allows geolocation, it will center the view on their current location. Otherwise, it defaults the view to the location of the Palmetto HQ in Charleston, SC.
 - Probably a little overkill to use Bootstrap just for header, table, and button styles only. I thought I was going to use more of it initially.
+- The calculator UI was placed on the bottom left because it was the only corner that didn't already have something it (top left: zoom controls, top right: reset map orientation appears if you rotate map, bottom  right: OpenStreetMap copyright). Also styled it to look like a default control.
+- The calculator UI could also have been done as an actual OpenLayer control but I didn't see that in the documentation until I was finished with everything.
 
 
 ###  JavaScript
@@ -111,5 +113,5 @@ Additionally, I am assuming the solar panels have an efficiency of 25%.
 |Class name|Responsiblity|
 |-|-|
 |MapService|Configures and renders the web-based map that the user can browse.|
-|SolarInstallationCalculator|Calculates nominal power based on given area, assumed light intensity and solar panel efficiency.|
+|SolarInstallationCalculator|Handles calculations for area and nominal power of the solar installation.|
 |SolarInstallationEstimatorTool|Handles all the user interactions and renders calculated results. Has dependencies on the two classes above.|
