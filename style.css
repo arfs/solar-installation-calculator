@@ -18,7 +18,9 @@ html, body {
   border-radius: 2px;
   color: rgb(102, 102, 102);
   position: absolute;
-  bottom: 0;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
   z-index: 10;
 }
 
@@ -36,6 +38,20 @@ html, body {
 #stats p, 
 #stats .table {
   margin-bottom: 0.6rem;
+}
+
+#stats th,
+#stats td {
+  padding: 0.4rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+  #stats {
+    left: 10px;
+    bottom: 10px;
+    width: 300px;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
