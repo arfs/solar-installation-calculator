@@ -91,7 +91,7 @@ Additionally, I am assuming the solar panels have an efficiency of 25%.
 
 - Kept it clean and minimal to match the aesthetics of OpenStreetMap.
 - Chose fullscreen map mode because that's the default styling from the boilerplate code and it feels more immersive.
-- If user allows geolocation, it will center the view on their current location. Otherwise, it defaults the view to the location of the Palmetto HQ in Charleston, SC.
+- If user allows geolocation, it will center the view on their current location. Otherwise, it defaults the view to the location of Charleston, SC.
 - Probably a little overkill to use Bootstrap just for header, table, and button styles only. I thought I was going to use more of it initially.
 - The calculator UI was placed on the bottom left because it was the only corner that didn't already have something it (top left: zoom controls, top right: reset map orientation appears if you rotate map, bottom  right: OpenStreetMap copyright). Also styled it to look like a default control.
 - The calculator UI could also have been done as an actual OpenLayer control but I didn't see that in the documentation until I was finished with everything.

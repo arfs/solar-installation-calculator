@@ -44,7 +44,7 @@ class MapService {
       view: this.#view
     });
 
-    // default the view to Palmetto HQ, but center to the user's coordinates if geolcation is allowed by user
+    // default the view to Charleston, SC but center to the user's coordinates if geolcation is allowed by user
     this.#geolocation.setTracking(true);
     this.#geolocation.on('change:position', this.onChangePosition.bind(this));
 
